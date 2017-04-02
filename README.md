@@ -11,7 +11,9 @@ cd openemr-demo-data-generator
 virtualenv venv
 source venv/bin/activate
 pip install -r requirements.txt
-python main.py
+python main.py patients <int>
 ```
+Int is the number of patients you want created
 
 Currently this will spit out valid SQL that will create only patient data
+

@@ -3,16 +3,17 @@ from util import *
 
 
 def generate_patients(count=1):
+    random.seed()
     patients = []
     for x in range(0, count):
-        gender = 'Male' if random.randint(0, 1) % 2 else 'Female'
-        fname, lname = barnum.create_name(gender=gender)
-        mname = barnum.create_name(False, gender) if random_truth(0.27) == 1 else ''
+        sex = 'Male' if random.randint(0, 1) % 2 else 'Female'
+        fname, lname = barnum.create_name(gender=sex)
+        mname = barnum.create_name(False, sex) if random_truth(0.27) == 1 else ''
         street, city, state, postal_code = generate_address()
         dob = barnum.create_birthday(1, 100)
 
         patient = {
-            'title': generate_title(gender),
+            'title': generate_title(sex),
             'language': '',
             'financial': '',
             'fname': fname,
@@ -35,7 +36,7 @@ def generate_patients(count=1):
             'status': '',
             'contact_relationship': '',
             'date': '',
-            'sex': gender,
+            'sex': sex,
             'referrer': '',
             'referrerID': '',
             'providerID': '',
@@ -55,12 +56,12 @@ def generate_patients(count=1):
             'financial_review': '',
             'pubpid': '',
             'pid': str(random.random())[2:],
-            'hippa_mail': 'yes' if random_truth(0.90) == 1 else 'no',
-            'hippa_voice': 'yes' if random_truth(0.75) == 1 else 'no',
-            'hippa_notice': 'yes' if random_truth(0.93) == 1 else 'no',
-            'hippa_message': 'yes' if random_truth(0.90) == 1 else 'no',
-            'hippa_allowsms': 'yes' if random_truth(0.50) == 1 else 'no',
-            'hippa_allowemail': 'yes' if random_truth(0.70) == 1 else 'no',
+            'hipaa_mail': 'yes' if random_truth(0.90) == 1 else 'no',
+            'hipaa_voice': 'yes' if random_truth(0.75) == 1 else 'no',
+            'hipaa_notice': 'yes' if random_truth(0.93) == 1 else 'no',
+            'hipaa_message': 'yes' if random_truth(0.90) == 1 else 'no',
+            'hipaa_allowsms': 'yes' if random_truth(0.50) == 1 else 'no',
+            'hipaa_allowemail': 'yes' if random_truth(0.70) == 1 else 'no',
         }
         patients.append(patient)
 
@@ -83,7 +84,18 @@ def random_drivers_license(initial_letter=None, year=None):
 
 
 def insert_patients(patients):
-    pass
+    sql_string = ""
+    for patient in patients:
+        columns = ", ".join(patient.keys())
+        values_list = []
+        for v in patient.values():
+            value = '"' + str(v) + '"'
+            values_list.append(value)
+
+        values = ", ".join(values_list)
+        line = "INSERT INTO `patient_data` (%s) VALUES (%s);\n" % (columns, values)
+        sql_string = sql_string + line
+    return sql_string
 
 
 def generate_title(gender=None):
@@ -92,6 +104,7 @@ def generate_title(gender=None):
 
     Example: "Mr."
     """
+    random.seed()
     if gender is None:
         return ''
     if gender == 'Male':

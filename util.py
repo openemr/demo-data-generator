@@ -3,6 +3,7 @@ from itertools import repeat
 
 
 def random_truth(weight=None):
+    random.seed()
     if not weight:
         weight = 500
     else:

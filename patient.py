@@ -1,3 +1,9 @@
+"""Generate patient data"""
+
+__copyright__ = "Copyright (C) 2017 Robert Down"
+__author__ = "Robert Down <robertdown@live.com>"
+__license__ = "GNU GPL3"
+
 import barnum
 from util import *
 

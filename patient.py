@@ -55,7 +55,7 @@ def generate_patients(count=1):
             'homeless': '',
             'financial_review': barnum.create_date(past=True).strftime("%Y-%m-%d"),
             'pubpid': '',
-            'pid': str(random.random())[2:],
+            'pid': str(random.randint(1, 99999999999)),
             'hipaa_mail': 'yes' if random_truth(0.90) == 1 else 'no',
             'hipaa_voice': 'yes' if random_truth(0.75) == 1 else 'no',
             'hipaa_notice': 'yes' if random_truth(0.93) == 1 else 'no',
@@ -72,8 +72,7 @@ def random_drivers_license(initial_letter=None, year=None):
     if not initial_letter:
         letters = (
             'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
-            'V',
-            'W', 'X', 'Y', 'Z')
+            'V', 'W', 'X', 'Y', 'Z')
         initial_letter = random.choice(letters)
     if not year:
         year = random.randint(10, 99)

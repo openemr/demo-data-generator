@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/openemr/demo-data-generator.svg?branch=master)](https://travis-ci.org/openemr/demo-data-generator)
+
 # OpenEMR Demo Data Generator
 
 This python tool creates fictional demo data for OpenEMR. It's still a work in progress.

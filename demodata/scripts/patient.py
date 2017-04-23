@@ -1,11 +1,11 @@
 """Generate patient data"""
 
+import barnum
+from demodata.util import *
+
 __copyright__ = "Copyright (C) 2017 Robert Down"
 __author__ = "Robert Down <robertdown@live.com>"
 __license__ = "GNU GPL3"
-
-import barnum
-from util import *
 
 
 def generate_patients(count=1):

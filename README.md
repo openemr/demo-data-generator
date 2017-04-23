@@ -8,17 +8,18 @@ This python tool creates fictional demo data for OpenEMR. It's still a work in p
 
 Clone this repo
 
-```
+```bash
 cd demo-data-generator
 virtualenv venv
-source venv/bin/activate
-pip install -r requirements.txt
+. venv/bin/activate
+pip install .
+demodata <command>
 ```
 
 ## Usage
 
 ```
-./main.py <command> <number of recursion>
+demodata <global options> COMMAND <options>
 ```
 
 ## Available data points
@@ -32,5 +33,6 @@ recommend piping the output to `file.sql`
 
 
 Currently this will spit out valid SQL that will create only patient data
+
 
 

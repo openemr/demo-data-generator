@@ -1,10 +1,12 @@
 # Contributing
 
 
-Thank you for your contribution. OpenEMR (and global healthcare) continues to get better because of people like you!
+Thank you for your contribution. OpenEMR (and global healthcare)
+continues to get better because of people like you!
 
-We welcome your contributions to the Demo Data Generator, here is how to ensure your code improvements is merged as
-quickly as possible. We suggest you use the [Github Flow method](https://guides.github.com/introduction/flow/index.html)
+We welcome your contributions to the Demo Data Generator, here is how to
+ensure your code improvements is merged as quickly as possible. We
+suggest you use the [Github Flow method](https://guides.github.com/introduction/flow/index.html)
 
 ## How can you contribute?
 1. Create a [new issue](https://github.com/openemr/demo-data-generator/issues/new)

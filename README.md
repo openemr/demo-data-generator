@@ -2,7 +2,8 @@
 
 # OpenEMR Demo Data Generator
 
-This python tool creates fictional demo data for OpenEMR. It's still a work in progress.
+This python tool creates fictional demo data for OpenEMR. It's still a
+work in progress.
 
 ## Installation
 
@@ -28,11 +29,16 @@ Here are the data points capable of being generated
 
 `patients`
 
-Plan on creating an option to allow writing straight to a file, but for now I
-recommend piping the output to `file.sql`
+Plan on creating an option to allow writing straight to a file, but for
+now I recommend piping the output to `file.sql`
 
 
-Currently this will spit out valid SQL that will create only patient data
+Currently this will spit out valid SQL that will create only patient
+data
 
+## License
+Copyright (C) 2017 Robert Down
 
+The OpenEMR Demo Data Generator tool is licensed under the GNU GPL V3
+license.
 

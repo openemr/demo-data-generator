@@ -127,12 +127,6 @@ def generate_title(gender=None):
     return weighted_titles[r - 1 if r > 0 else 0]
 
 
-def generate_address():
-    street = barnum.create_street()
-    zip, city, state = barnum.create_city_state_zip()
-    return street, city, state, zip
-
-
 def generate_pharmacy():
     name = barnum.create_company_name()
     street, city, state, zip = generate_address()

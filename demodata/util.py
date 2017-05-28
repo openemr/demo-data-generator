@@ -1,4 +1,5 @@
 import random
+import barnum
 from itertools import repeat
 
 
@@ -22,3 +23,9 @@ def random_truth(weight=None):
     p.extend(repeat(1, weight))
 
     return p[random.randint(0, 999)]
+
+
+def generate_address():
+    street = barnum.create_street()
+    zip, city, state = barnum.create_city_state_zip()
+    return street, city, state, zip

@@ -25,6 +25,21 @@ def random_truth(weight=None):
     return p[random.randint(0, 999)]
 
 
+def generate_sql(table_name, object):
+    sql_string = ""
+    for row in object:
+        columns = ", ".join(row.keys())
+        values_list = []
+        for v in row.values():
+            value = '"' + str(v) + '"'
+            values_list.append(value)
+
+        values = ", ".join(values_list)
+        line = "INSERT INTO `%s` (%s) VALUES (%s);\n" % (table_name, columns, values)
+        sql_string = sql_string + line
+    return sql_string
+
+
 def generate_address():
     street = barnum.create_street()
     zip, city, state = barnum.create_city_state_zip()

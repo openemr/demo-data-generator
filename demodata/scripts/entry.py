@@ -2,6 +2,7 @@
 
 from demodata.scripts import patient as p
 from demodata.scripts import facility as f
+import demodata.util as u
 import click
 
 
@@ -19,7 +20,7 @@ def cli(ctx, output):
 def patients(ctx, count):
     """Generate patient data"""
     patient = p.generate_patients(count)
-    sql = p.insert_patients(patient)
+    sql = u.generate_sql('patient_data', patient)
 
     # @todo Figure out a way to handle the --output option, probably a function called post_process()
     click.echo(sql)
@@ -30,11 +31,11 @@ def patients(ctx, count):
 @click.option('--count', default=1, help='number of facilities')
 def facilities(ctx, count):
     """Generate faciliity data"""
-    patient = f.generate_facility(count)
-    # sql = p.insert_patients(patient)
+    facility = f.generate_facility(count)
+    sql = u.generate_sql('facilities', facility)
 
     # @todo Figure out a way to handle the --output option, probably a function called post_process()
-    click.echo(patient)
+    click.echo(sql)
 
 
 cli.add_command(patients)

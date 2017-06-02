@@ -31,6 +31,7 @@ def generate_facility(count=1):
             'fax': barnum.create_phone(postal_code),
             'tax_id_type': "EI",
             'federal_ein': random.randint(10000000000, 99999999999),
+            'facility_npi': random.randint(1000000000, 9999999999),
             'website': '',
             'email': barnum.create_email(name=name),
             'billing_location': billing,
@@ -39,9 +40,9 @@ def generate_facility(count=1):
             'color': '',
             'primary_business_entity': 1,
             'pos_code': '21',
-            'attn': barnum.create_name(),
+            'attn': '',
             'domain_identifier': '',
-            'facility_id': ''
+            'facility_id': '%s-%s' % (name, str(random.randint(10000, 99999)))
         }
 
         facilities.append(facility)

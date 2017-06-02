@@ -28,6 +28,7 @@ demodata <global options> COMMAND <options>
 Here are the data points capable of being generated
 
 `patients`
+`facilities`
 
 Plan on creating an option to allow writing straight to a file, but for
 now I recommend piping the output to `file.sql`

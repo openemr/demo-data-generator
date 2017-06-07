@@ -25,6 +25,19 @@ def random_truth(weight=None):
     return p[random.randint(0, 999)]
 
 
+def generate_hex_color():
+    random.seed()
+    opts = "A,B,C,D,E,F,0,1,2,3,4,5,6,7,8,9"
+    opts = opts.split(",")
+    color = []
+    for x in range(0, 6):
+        n = random.randrange(len(opts))
+        color.append(opts[n])
+
+    result = "#" + "".join(color)
+    return result
+
+
 def generate_sql(table_name, object):
     sql_string = ""
     for row in object:

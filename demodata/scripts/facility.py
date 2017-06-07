@@ -19,7 +19,7 @@ def generate_facility(count=1):
         if billing:
             assignment = random_truth(0.8)
 
-        # TODO domain_id, pos_code, facility_id, website, color
+        # TODO domain_id, pos_code, facility_id, website
         facility = {
             'name': name,
             'street': street,
@@ -37,7 +37,7 @@ def generate_facility(count=1):
             'billing_location': billing,
             'accepts_assignment': assignment,
             'service_location': 1,
-            'color': '',
+            'color': generate_hex_color(),
             'primary_business_entity': 1,
             'pos_code': '21',
             'attn': '',

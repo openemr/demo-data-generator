@@ -88,21 +88,6 @@ def random_drivers_license(initial_letter=None, year=None):
     return "%s%i-%i-%i-%i" % (initial_letter, triplicate[0], triplicate[1], year, triplicate[2])
 
 
-def insert_patients(patients):
-    sql_string = ""
-    for patient in patients:
-        columns = ", ".join(patient.keys())
-        values_list = []
-        for v in patient.values():
-            value = '"' + str(v) + '"'
-            values_list.append(value)
-
-        values = ", ".join(values_list)
-        line = "INSERT INTO `patient_data` (%s) VALUES (%s);\n" % (columns, values)
-        sql_string = sql_string + line
-    return sql_string
-
-
 def generate_title(gender=None):
     """
     Randomly select a title based on given gender

@@ -30,12 +30,14 @@ Here are the data points capable of being generated
 `patients`
 `facilities`
 
-Plan on creating an option to allow writing straight to a file, but for
-now I recommend piping the output to `file.sql`
+There is a plan to create an option to allow writing the data
+straight to a file, but for now I recommend the following:
 
-
-Currently this will spit out valid SQL that will create only patient
-data
+```
+touch file.sql
+for i in {1..1000}; do demodata patients >> file.sql; done
+mysql -u your_username -p openemr < file.sql
+```
 
 ## License
 Copyright (C) 2017 Robert Down

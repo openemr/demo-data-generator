@@ -61,7 +61,7 @@ def generate_patients(count=1):
             'homeless': '',
             'financial_review': barnum.create_date(past=True).strftime("%Y-%m-%d"),
             'pubpid': '',
-            'pid': str(random.randint(1, 99999999999)),
+            'pid': str(random.randint(1, 9999999999)),
             'hipaa_mail': 'yes' if random_truth(0.90) == 1 else 'no',
             'hipaa_voice': 'yes' if random_truth(0.75) == 1 else 'no',
             'hipaa_notice': 'yes' if random_truth(0.93) == 1 else 'no',
